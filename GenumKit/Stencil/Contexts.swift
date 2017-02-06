@@ -255,7 +255,7 @@ extension StringsFileParser {
 
   private func normalize(_ string: String) -> String {
     let components = string.components(separatedBy: CharacterSet(charactersIn: "-_"))
-    return components.map { $0.capitalized }.joined(separator: "")
+    return components.map { $0/*.capitalized*/ }.joined(separator: "")
   }
 
   typealias Mapper = (_ entry: Entry, _ keyPath: [String]) -> [String: Any]
@@ -288,7 +288,7 @@ extension StringsFileParser {
     let uniqueNextLevelKeyPaths = Array(Set(
       nextLevelKeyPaths.map { keyPath in
         keyPath.map({
-          $0.capitalized.replacingOccurrences(of: "-", with: "_")
+          $0/*.capitalized*/.replacingOccurrences(of: "-", with: "_")
         }).joined(separator: ".")
       }))
       .sorted()
