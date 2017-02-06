@@ -222,7 +222,8 @@ extension StringsFileParser {
           "types": entry.types.map { $0.rawValue },
           "declarations": entry.types.indices.map { "let p\($0)" },
           "names": entry.types.indices.map { "p\($0)" },
-          "typednames": entry.types.enumerated().map { "p\($0): \($1.rawValue)" }
+          "typednames": entry.types.enumerated().map { "p\($0): \($1.rawValue)" },
+          "_typednames": entry.types.enumerated().map { "_ p\($0): \($1.rawValue)" },
         ]
         return ["key": entry.key.newlineEscaped,
                 "translation": entry.translation.newlineEscaped,
